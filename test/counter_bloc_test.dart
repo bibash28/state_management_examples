@@ -7,14 +7,14 @@ void main() {
     blocTest(
       'emits [] when nothing is called',
       build: () => CounterBloc(),
-      expect: [],
+      expect: () => [],
     );
 
     blocTest(
       'emits [1] when increment is called',
       build: () => CounterBloc(),
       act: (bloc) => bloc.add(IncrementEvent()),
-      expect: [CounterIncreased(action: 'Increased', count: 1)],
+      expect: () => [CounterIncreased(action: 'Increased', count: 1)],
     );
 
     blocTest(
@@ -24,7 +24,7 @@ void main() {
         ..add(IncrementEvent())
         ..add(IncrementEvent())
         ..add(DecrementEvent()),
-      expect: [
+      expect: () => [
         CounterIncreased(action: 'Increased', count: 1),
         CounterIncreased(action: 'Increased', count: 2),
         CounterDecreased(action: 'Decreased', count: 1),
