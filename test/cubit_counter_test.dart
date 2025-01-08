@@ -24,7 +24,7 @@ void main() {
     );
 
     blocTest(
-      'emits [1] when decrement is called',
+      'emits [-1] when decrement is called',
       build: () => CounterCubit(),
       act: (bloc) => bloc.decrement(),
       expect: () => [CounterCubitDecreased(action: 'Decrement', count: -1)],

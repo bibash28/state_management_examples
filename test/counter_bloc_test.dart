@@ -23,7 +23,7 @@ void main() {
     );
 
     blocTest(
-      'emits [1] when decrement is called',
+      'emits [-1] when decrement is called',
       build: () => CounterBloc(),
       act: (bloc) => bloc.add(DecrementEvent()),
       expect: () => [CounterDecreased(action: 'Decreased', count: -1)],
